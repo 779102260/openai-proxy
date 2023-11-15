@@ -1,29 +1,16 @@
 import OpenAI from "openai";
-import axios from "axios";
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY || 'sk-KFv2ZfTcIshd15PUJ8jAtMsf7KSBFKJnGLX4bfpZGU1IOS7N', // defaults to process.env["OPENAI_API_KEY"]
-})
+const API_KEY = process.env.API_KEY;
 
 /** openai 对话接口 */
-export async function conversation(prompt: string) {
+export async function conversation(prompt: string, apiKey = API_KEY) {
     try {
-        // const chatCompletion: any = await axios.post('https://api.openai.com/v1/chat/completions', {
-        //     model: 'gpt-3.5-turbo',
-        //     messages: [{
-        //         role: 'user',
-        //         content: prompt
-        //     }]
-        // }, {
-        //     headers: { 
-        //         'Content-Type': 'application/json', 
-        //         'Authorization': `Bearer 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` 
-        //     },
-        //     proxy: {
-        //         host: '127.0.0.1',
-        //         port: 7890
-        //     }
-        // });
+        if (!apiKey) {
+            throw new Error("Missing required API_KEY");
+        }
+        const openai = new OpenAI({
+            apiKey: apiKey || API_KEY,
+        })
         const chatCompletion = await openai.chat.completions.create({
             messages: [{ role: 'user', content: prompt }],
             model: 'gpt-3.5-turbo',
@@ -42,6 +29,7 @@ export async function conversation(prompt: string) {
     }
 }
 
-conversation("Hello, world!").then(response => console.log(response));
+// test
+// conversation("Hello, world!").then(response => console.log(response));
   
   
