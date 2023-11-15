@@ -2,6 +2,10 @@ import { NextApiRequest, NextApiResponse } from "next"
 import initCycleTLS, { type CycleTLSRequestOptions, formatConversion } from '@/libs/cycletls'
 import { Readable } from "stream"
 
+// 这个 API 接口允许用户发送消息到一个指定的 Claude 聊天会话中。
+// 当接收到请求时，这个文件会负责构造适当的数据格式，并将请求转发到 Claude API，以便添加用户的消息到对话中。
+// 这样，它就能够实现与 Claude 聊天机器人的交互功能。
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
         if ("POST" === req.method) {

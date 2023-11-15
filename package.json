@@ -8,13 +8,16 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "changelog": "standard-changelog"
+    "changelog": "standard-changelog",
+    "test": "npx ts-node --compiler-options \"{\\\"module\\\": \\\"commonjs\\\"}\""
   },
   "dependencies": {
     "@upstash/ratelimit": "^0.4.3",
+    "axios": "^1.6.2",
     "cycletls": "^1.0.21",
     "googlebard": "^1.0.7",
     "next": "latest",
+    "openai": "^4.18.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "uuid": "^9.0.0"
