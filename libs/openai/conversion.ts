@@ -2,7 +2,7 @@ import OpenAI from "openai";
 import axios from "axios";
 
 const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY || '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', // defaults to process.env["OPENAI_API_KEY"]
+    apiKey: process.env.OPENAI_API_KEY || 'sk-KFv2ZfTcIshd15PUJ8jAtMsf7KSBFKJnGLX4bfpZGU1IOS7N', // defaults to process.env["OPENAI_API_KEY"]
 })
 
 /** openai 对话接口 */
