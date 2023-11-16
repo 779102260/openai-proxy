@@ -39,4 +39,4 @@ export async function conversation(prompt: string, endPoint = END_POINT, apiKey 
 }
 
 // test
-conversation("Hello, world!").then(response => console.log(response));
+// conversation("Hello, world!").then(response => console.log(response));
